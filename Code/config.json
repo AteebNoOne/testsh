@@ -1,6 +1,6 @@
 {
-"iptables":"/usr/sbin/iptables",
-"iptables_save":"/sbin/iptables-save",
+"iptables":"sudo /usr/sbin/iptables",
+"iptables_save":"sudo /sbin/iptables-save",
 "whitelist":"whitelist.txt",
 "blacklist":"blacklist.txt",
 "allow_ports":"22 21 25",
