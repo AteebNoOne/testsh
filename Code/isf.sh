@@ -1,5 +1,5 @@
 #!/bin/bash
-#Author: Anas Mahmood
+#Author Ateeeb007
 
 clear
 echo "
@@ -13,7 +13,6 @@ echo "
           |__|______|_| 
 
      Internet Security Firewall
-             ## Coded By Anas
 "
 echo
 
@@ -22,12 +21,10 @@ BLACKLIST=$(cat config.json | jq .blacklist | sed 's/"//g')
 
 ALLOW_PORTS=$(cat config.json | jq .allow_ports | sed 's/"//g')
 DENY_PORTS=$(cat config.json | jq .deny_ports | sed 's/"//g')
-
 IPTABLES=$(cat config.json | jq .iptables | sed 's/"//g')
-IPTABLES_SAVE=$(cat config.json | jq .iptables_save | sed 's/"//g')
 
-$IPTABLES_SAVE > /usr/local/etc/iptables.last
-
+IPTABLES_SAVE= $(cat config.json | jq .iptables_save | sed 's/"//g')
+sudo "$IPTABLES_SAVE > /usr/local/etc/iptables.last"
 
 $IPTABLES -P INPUT ACCEPT
 echo "[+] Setting default INPUT policy to ACCEPT"
@@ -78,5 +75,5 @@ done
 $IPTABLES -A INPUT -p udp -j DROP
 $IPTABLES -A INPUT -p tcp --syn -j DROP
 
-iptables-save
+sudo iptables-save
 echo "[+] Settings saved Succesfully!"
