@@ -1,0 +1,8 @@
+{
+"iptables":"/usr/sbin/iptables",
+"iptables_save":"/sbin/iptables-save",
+"whitelist":"whitelist.txt",
+"blacklist":"blacklist.txt",
+"allow_ports":"22 21 25",
+"deny_ports":"23 80"
+}
